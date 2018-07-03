@@ -1,0 +1,51 @@
+// menu
+.el-menu-item-group__title{
+    height: 32px;
+    line-height: 32px;
+    font-size: 18px;
+    padding-left: 100px!important;
+}
+.el-menu-item{
+    font-size: 16px;
+    border-right: 6px solid transparent;
+    padding-left: 135px!important;
+    &.is-active{
+        border-right: 6px solid #2871fe;
+    }
+    &.is-active, &:hover, &:focus{
+        background-color: #f2f6ff!important;
+    }
+}
+
+// breadcrumb
+.breadcrumb{
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+    .el-breadcrumb{
+        height: 60px;
+        line-height: 60px;
+        font-size: 16px;
+        .el-breadcrumb__inner{
+            color: #92a1a6;
+        }
+    }
+}
+
+//pagination
+.el-pagination{
+    text-align: right;
+    margin-top: 20px;
+    &.is-background .btn-prev,
+    &.is-background .btn-next,
+    &.is-background .el-pager li{
+        background-color: #fff;
+    }
+}
+
+// table
+.table_title{
+    height: 76px;
+    color: #4e4e4e;
+    font-size: 16px;
+}
