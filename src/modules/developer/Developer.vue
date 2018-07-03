@@ -1,7 +1,7 @@
 <template>
     <VuePerfectScrollbar v-scroll id="developer">
         <header class="header">
-            <ul class="clear commonWidth">
+            <ul class="clear common_width">
                 <li class="fl">
                     <img src="../../assets/img/developer/logo.png" alt="">
                     <span>德同开发者平台</span>
@@ -21,7 +21,7 @@
                 <p>项目开发，迅疾如飞</p>
             </div>
         </header>
-        <div class="understand commonWidth">
+        <div class="understand common_width">
             <h1>认识智能合约</h1>
             <h2>智能合约是人与区块链的媒介，要借助智能合约我们才能向区块链中写入或读取数据。为了让开发者更容易理解，我们提供了一些智能合约模版给开发者进行参考。</h2>
             <ul class="clear">
@@ -50,7 +50,7 @@
             <h2>基于浏览器的智能合约编辑器，集成编译器和Solidity运行时的环境，无需服务器端组件。</h2>
             <button type="button">立即使用</button>
         </div>
-        <div class="deploy commonWidth">
+        <div class="deploy common_width">
             <h1>部署到区块链</h1>
             <h2>智能合约编写完成后，可以将智能合约部署到平台搭建的联盟链上</h2>
             <div class="deployImg">
@@ -80,8 +80,62 @@
             <h1>联盟链加盟</h1>
             <h2>提供联盟链加盟服务，用户可以提供自己的节点，让联盟链更加稳定、可靠！</h2>
             <div class="joinImg">
-                <div><img src="" alt=""></div>
+                <div class="five_node"><img src="../../assets/img/developer/five_node.png" alt=""></div>
+                <div class="cube_one"><img src="../../assets/img/developer/cube_one.png" alt=""></div>
+                <div class="cube_two"><img src="../../assets/img/developer/cube_two.png" alt=""></div>
+                <div class="cube_three"><img src="../../assets/img/developer/cube_three.png" alt=""></div>
+                <div class="small_thing_one"><img src="../../assets/img/developer/small_thing_one.png" alt=""></div>
+                <div class="small_thing_two"><img src="../../assets/img/developer/small_thing_two.png" alt=""></div>
+                <div class="shining"><img src="../../assets/img/developer/shining.png" alt=""></div>
+                <div class="blue_node"><img src="../../assets/img/developer/blue_node.png" alt=""></div>
+                <div class="grey_node"><img src="../../assets/img/developer/grey_node.png" alt=""></div>
             </div>
+        </div>
+        <div class="benefit">
+            <h1>加入联盟链的好处</h1>
+            <ul class="clear">
+                <li class="fl">
+                    <img style="margin-top: 1px" src="../../assets/img/developer/bonus.png" alt="">
+                    <p>联盟链收益分成</p>
+                </li>
+                <li class="fl">
+                    <img style="margin-top: 7px" src="../../assets/img/developer/support.png" alt="">
+                    <p>项目开发技术优先支持</p>
+                </li>
+                <li class="fl">
+                    <img src="../../assets/img/developer/share.png" alt="">
+                    <p>区块链最新技术分享</p>
+                </li>
+                <li class="fl">
+                    <img style="margin-top: 11px" src="../../assets/img/developer/corporate_image.png" alt="">
+                    <p>企业形象提升</p>
+                </li>
+            </ul>
+            <button type="button">申请加入</button>
+        </div>
+        <div class="footer">
+            <div class="footer_link clear">
+                <div class="fl"><h1>趣链官网</h1></div>
+                <div class="fl">
+                    <h1>资源</h1>
+                    <p>SDK</p>
+                    <p>API</p>
+                    <p>在线IDE</p>
+                </div>
+                <div class="fl">
+                    <h1>帮助网站</h1>
+                    <p>Solidity语言</p>
+                    <p>趣链帮助中心</p>
+                </div>
+                <div class="fl">
+                    <h1>联系我们</h1>
+                    <p>招聘与咨询：0571-87203334</p>
+                    <p>邮箱：support.dev@hyperchain.cn</p>
+                    <p>QQ交流群：516840101</p>
+                    <p>微信公众号</p>
+                </div>
+            </div>
+            <div class="footer_copy">版权所有&copy;成都迅鳐科技有限公司 － 川ICP备16033604号-1 成都市高新区天府五街200菁蓉国际广场1B325号</div>
         </div>
     </VuePerfectScrollbar>
 </template>
@@ -96,7 +150,7 @@
 </script>
 
 <style lang="scss" scoped>
-    .commonWidth{
+    .common_width{
         width: 1200px;
         margin: auto;
     }
@@ -136,6 +190,33 @@
             opacity: 1;
             -webkit-transform: none;
             transform: none;
+        }
+    }
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(0,120%,0);
+            transform: translate3d(0,120%,0);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+    @keyframes fadeInDownOut {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(0,-120%,0);
+            transform: translate3d(0,-120%,0);
+        }
+        60% {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+        100% {
+            opacity: 0;
         }
     }
     @keyframes showBill {
@@ -510,8 +591,222 @@
         }
         .join{
             background-color: #1d9df3;
-            background-image: linear-gradient(hsla(0,0%,50%,.1) 1px,transparent 0),linear-gradient(90deg,hsla(0,0%,50%,.1) 1px,transparent 0);
-            background-size: 8px 8px,8px 8px;
+            text-align: center;
+            color: #fff;
+            padding-top: 80px;
+            padding-bottom: 100px;
+            h1{
+                font-size: 30px;
+                margin-bottom: 16px;
+                font-weight: 400;
+            }
+            h2{
+                font-size: 16px;
+            }
+            .joinImg{
+                width: 650px;
+                height: 600px;
+                position: relative;
+                margin: auto;
+                top: 10px;
+                div{
+                    position: absolute;
+                    opacity: 0;
+                    &.five_node{
+                        top: 186px;
+                        left: 50px;
+                        z-index: 2;
+                        opacity: 1;
+                        img{
+                            width: 576px;
+                            height: 280px;
+                        }
+                    }
+                    &.cube_one{
+                        top: 280px;
+                        animation: fadeInUp .6s 1.6s forwards ease-out;
+                        img{
+                            width: 22px;
+                            height: 76px;
+                        }
+                    }
+                    &.cube_two{
+                        top: 440px;
+                        left: 540px;
+                        animation: fadeInUp .4s 1.6s forwards ease-out;
+                        img{
+                            width: 30px;
+                            height: 102px;
+                        }
+                    }
+                    &.cube_three{
+                        top: 217px;
+                        left: 640px;
+                        animation: fadeInUp .5s 1.6s forwards ease-out;
+                        img{
+                            width: 17px;
+                            height: 59px;
+                        }
+                    }
+                    &.small_thing_one{
+                        top: 436px;
+                        left: 50px;
+                        animation: fadeInUp .7s 1.6s forwards ease-out;
+                        img{
+                            width: 15px;
+                            height: 53px;
+                        }
+                    }
+                    &.small_thing_two{
+                        top: 394px;
+                        left: 590px;
+                        animation: fadeInUp .4s 1.6s forwards ease-out;
+                        img{
+                            width: 15px;
+                            height: 15px;
+                        }
+                    }
+                    &.shining{
+                        top: 36px;
+                        left: 122px;
+                        z-index: 1;
+                        animation: show .6s 1.5s forwards ease-in;
+                        img{
+                            width: 408px;
+                            height: 297px;
+                        }
+                    }
+                    &.blue_node{
+                        top: 126px;
+                        left: 271px;
+                        z-index: 3;
+                        animation: show .5s 1.2s forwards linear;
+                        img{
+                            width: 130px;
+                            height: 98px;
+                        }
+                    }
+                    &.grey_node{
+                        top: 125px;
+                        left: 271px;
+                        z-index: 4;
+                        animation: fadeInDownOut 1.2s .5s forwards linear;
+                        img{
+                            width: 130px;
+                            height: 98px;
+                        }
+                    }
+                }
+            }
+        }
+        .benefit{
+            text-align: center;
+            padding-bottom: 100px;
+            padding-top: 80px;
+            h1{
+                color: #292d31;
+                font-size: 30px;
+            }
+            ul{
+                margin: 80px auto 0;
+                width: 858px;
+                li{
+                    text-align: center;
+                    margin: 0 50px;
+                    img{
+                        margin-bottom: 24px;
+                    }
+                    p{
+                        color: #292d31;
+                        font-size: 14px;
+                    }
+                    &:nth-child(1){
+                        img{
+                            width: 100px;
+                            height: 93px;
+                        }
+                    }
+                    &:nth-child(2){
+                        img{
+                            width: 82px;
+                            height: 87px;
+                        }
+                    }
+                    &:nth-child(3){
+                        img{
+                            width: 81px;
+                            height: 94px;
+                        }
+                    }
+                    &:nth-child(4){
+                        img{
+                            width: 92px;
+                            height: 83px;
+                        }
+                    }
+                }
+            }
+            button{
+                width: 200px;
+                padding: 12px 0;
+                margin-top: 48px;
+                color: #525b63;
+                background-color: transparent;
+                border: 2px solid #525b63;
+                font-size: 16px;
+                transition: all .1s linear;
+                cursor: pointer;
+                &:hover{
+                    background-color: #229aff;
+                    border-color: #229aff;
+                    color: #fff;
+                }
+            }
+        }
+        .footer{
+            background-color: #292e36;
+            .footer_link{
+                width: 1000px;
+                margin: auto;
+                padding-bottom: 30px;
+                padding-top: 48px;
+                color: #fff;
+                div{
+                    height: 180px;
+                    h1{
+                        font-size: 16px;
+                        margin-bottom: 20px;
+                        font-weight: 400;
+                    }
+                    p{
+                        font-size: 14px;
+                        color: hsla(0,0%,100%,.6);
+                        margin-bottom: 12px;
+                    }
+                }
+                div:nth-child(1){
+                    width: 189px;
+                    border-right: 1px solid hsla(0,0%,100%,.1);
+                }
+                div:nth-child(2){
+                    width: 160px;
+                    padding-left: 60px;
+                }
+                div:nth-child(3){
+                    width: 160px;
+                }
+                div:nth-child(4){
+                    width: 430px;
+                }
+            }
+            .footer_copy{
+                text-align: center;
+                font-size: 14px;
+                height: 60px;
+                line-height: 60px;
+                color: hsla(0,0%,100%,.5);
+                background-color: #20242b;
+            }
         }
     }
 </style>
