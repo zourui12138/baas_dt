@@ -20,6 +20,8 @@ import PeerConfig from '../modules/platform/platformConfig/PeerConfig'
 import PlatformStatistics from '../modules/platform/statisticsMonitor/PlatformStatistics'
 // 德同开发者平台
 import Developer from '../modules/developer/Developer'
+// 德同合约管理系统
+import Contract from '../modules/contract/Contract'
 // 404处理
 import NotFound from '../modules/error/NotFound'
 
@@ -115,6 +117,12 @@ export default new Router({
             path: '/developer',
             name: 'developer',
             component: Developer
+        },
+        // 德同合约管理系统
+        {
+            path: '/contract',
+            name: 'contract',
+            component: Contract
         }
     ]
 });

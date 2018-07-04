@@ -19,15 +19,15 @@
             :data="monitorPolicyList"
             style="width: 100%"
             header-cell-class-name="table_title">
-            <el-table-column label="告警对象" prop="object"></el-table-column>
-            <el-table-column label="告警内容" prop="content"></el-table-column>
-            <el-table-column label="发生时间" prop="date"></el-table-column>
-            <el-table-column label="告警等级">
+            <el-table-column label="通知人" prop="notifier"></el-table-column>
+            <el-table-column label="账号" prop="account"></el-table-column>
+            <el-table-column label="手机号" prop="phone"></el-table-column>
+            <el-table-column label="邮箱" prop="email"></el-table-column>
+            <el-table-column label="异常等级">
                 <template slot-scope="scope"><p class="warning_level error">{{scope.row.level}}</p></template>
             </el-table-column>
-            <el-table-column label="告警状态" prop="status"></el-table-column>
             <el-table-column width="90" label="操作">
-                <template slot-scope="scope"><span style="color:#00e9bc;cursor: pointer">处理</span></template>
+                <template slot-scope="scope"><span style="color:#00e9bc;cursor: pointer">删除</span></template>
             </el-table-column>
         </el-table>
         <el-pagination class="page" background layout="prev, pager, next" :total="1000"></el-pagination>
@@ -46,12 +46,61 @@
                 },
                 monitorPolicyList: [
                     {
-                        object: 'JWCD20170401815',
-                        content: 'xxxxxxxxxxxxxxxxxxxxxxx',
-                        date: '2017-05-18 23:59:59',
-                        level: '严重',
-                        status: '启用'
+                        notifier: 'JWCD20170401815',
+                        account: 'xxxxxxxxxxxxxxxxxxxxxxx',
+                        phone: '18728053221',
+                        email: '18728053221@163.com',
+                        level: '严重'
                     },
+                    {
+                        notifier: 'JWCD20170401815',
+                        account: 'xxxxxxxxxxxxxxxxxxxxxxx',
+                        phone: '18728053221',
+                        email: '18728053221@163.com',
+                        level: '严重'
+                    },
+                    {
+                        notifier: 'JWCD20170401815',
+                        account: 'xxxxxxxxxxxxxxxxxxxxxxx',
+                        phone: '18728053221',
+                        email: '18728053221@163.com',
+                        level: '严重'
+                    },
+                    {
+                        notifier: 'JWCD20170401815',
+                        account: 'xxxxxxxxxxxxxxxxxxxxxxx',
+                        phone: '18728053221',
+                        email: '18728053221@163.com',
+                        level: '严重'
+                    },
+                    {
+                        notifier: 'JWCD20170401815',
+                        account: 'xxxxxxxxxxxxxxxxxxxxxxx',
+                        phone: '18728053221',
+                        email: '18728053221@163.com',
+                        level: '严重'
+                    },
+                    {
+                        notifier: 'JWCD20170401815',
+                        account: 'xxxxxxxxxxxxxxxxxxxxxxx',
+                        phone: '18728053221',
+                        email: '18728053221@163.com',
+                        level: '严重'
+                    },
+                    {
+                        notifier: 'JWCD20170401815',
+                        account: 'xxxxxxxxxxxxxxxxxxxxxxx',
+                        phone: '18728053221',
+                        email: '18728053221@163.com',
+                        level: '严重'
+                    },
+                    {
+                        notifier: 'JWCD20170401815',
+                        account: 'xxxxxxxxxxxxxxxxxxxxxxx',
+                        phone: '18728053221',
+                        email: '18728053221@163.com',
+                        level: '严重'
+                    }
                 ]
             }
         }

@@ -16,7 +16,6 @@
         background-color: #f2f6ff!important;
     }
 }
-
 // breadcrumb
 .breadcrumb{
     height: 60px;
@@ -31,7 +30,6 @@
         }
     }
 }
-
 //pagination
 .el-pagination{
     text-align: right;
@@ -42,10 +40,20 @@
         background-color: #fff;
     }
 }
-
 // table
 .table_title{
     height: 76px;
     color: #4e4e4e;
     font-size: 16px;
+}
+.tableTitle{
+    background-color: #5a8bff!important;
+    color: #fff;
+}
+// dialog
+.dialogContainer{
+    .el-dialog{
+        margin-top: 32px!important;
+        margin-bottom: 32px!important;
+    }
 }

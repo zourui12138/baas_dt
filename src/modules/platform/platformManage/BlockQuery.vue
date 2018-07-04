@@ -2,12 +2,12 @@
     <div>
         <ul class="search card clear">
             <li class="fl">
-                <span>合约名称：</span>
-                <el-input class="" placeholder="请输入合约名称" v-model="searchData.contractName" clearable></el-input>
+                <span>区块名称：</span>
+                <el-input class="" placeholder="请输入区块名称" v-model="searchData.contractName" clearable></el-input>
             </li>
             <li class="fl">
-                <span>类型：</span>
-                <el-input placeholder="请输入合约类型" v-model="searchData.contractName" clearable></el-input>
+                <span>哈希值：</span>
+                <el-input placeholder="请输入哈希值" v-model="searchData.contractName" clearable></el-input>
             </li>
             <li class="fl">
                 <span>创建时间：</span>

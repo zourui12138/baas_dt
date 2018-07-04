@@ -1,5 +1,26 @@
 <template>
-    <div class="chart card" ref="chart"></div>
+    <div id="highAvailability">
+        <header class="card">
+            <span>网关</span>
+            <ul class="clear">
+                <li class="fl"><img src="../../../assets/img/platform/highAvailability/yellow_arrow.png" alt=""></li>
+                <li class="fl"><img src="../../../assets/img/platform/highAvailability/blue_arrow.png" alt=""></li>
+                <li class="fl"><img src="../../../assets/img/platform/highAvailability/green_arrow.png" alt=""></li>
+                <li class="fl"><img src="../../../assets/img/platform/highAvailability/red_arrow.png" alt=""></li>
+            </ul>
+        </header>
+        <section class="card">
+            <ul class="clear">
+                <li class="fl"><img src="../../../assets/img/platform/highAvailability/icon.png" alt=""></li>
+                <li class="fl"><img src="../../../assets/img/platform/highAvailability/icon.png" alt=""></li>
+                <li class="fl"><img src="../../../assets/img/platform/highAvailability/icon.png" alt=""></li>
+                <li class="fl"><img src="../../../assets/img/platform/highAvailability/icon.png" alt=""></li>
+                <li class="fr">负载方法：轮循</li>
+            </ul>
+        </section>
+        <footer class="card">区块链</footer>
+        <div class="chart" ref="chart"></div>
+    </div>
 </template>
 
 <script>
@@ -11,9 +32,6 @@
                 let myChart = this.$echarts.init(this.$refs.chart);
                 // 图表配置项
                 let option = {
-                    title: {
-                        text: '笛卡尔坐标系上的 Graph'
-                    },
                     xAxis: {
                         show: false,
                         type: 'value'
@@ -169,7 +187,51 @@
 </script>
 
 <style lang="scss" scoped>
-    .chart{
-        height: 920px;
+    #highAvailability{
+        position: relative;
+        margin-top: 50px;
+        header{
+            height: 200px;
+            line-height: 50px;
+            padding-left: 20px;
+            position: relative;
+            ul{
+                position: absolute;
+                top: -35px;
+                left: 0;
+                li{
+                    &:nth-child(1){margin-left: 160px;}
+                    &:nth-child(2){margin-left: 235px;}
+                    &:nth-child(3){margin-left: 545px;}
+                    &:nth-child(4){margin-left: 235px;}
+                }
+            }
+        }
+        section{
+            height: 60px;
+            line-height: 60px;
+            margin: 20px 0;
+            ul{
+                padding-left: 190px;
+                padding-right: 30px;
+                li{
+                    img{
+                        margin: 10px 105px;
+                    }
+                }
+            }
+        }
+        footer{
+            height: 570px;
+            line-height: 100px;
+            padding-left: 20px;
+        }
+        .chart{
+            width: 100%;
+            height: 920px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
     }
 </style>

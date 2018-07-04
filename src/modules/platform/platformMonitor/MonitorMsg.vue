@@ -15,9 +15,38 @@
             </el-col>
         </el-row>
         <el-row :gutter="25">
-            <el-col :span="16"><div class="chart card" ref="cpu"></div></el-col>
-            <el-col :span="8"><div class="chart card"></div></el-col>
-            <el-col :span="24"><div class="chart card io_chart" ref="io"></div></el-col>
+            <el-col :span="16">
+                <div class="chart card">
+                    <header class="clear">
+                        <span class="fl">CPU使用率</span>
+                        <ul class="fr">
+                            <li class="fl"><span class="current">近1小时</span></li>
+                            <li class="fl"><span>近7天</span></li>
+                            <li class="fl"><span>近14天</span></li>
+                        </ul>
+                    </header>
+                    <section ref="cpu"></section>
+                </div>
+            </el-col>
+            <el-col :span="8">
+                <div class="chart card">
+                    <header>已使用内存</header>
+                    <section ref="ram"></section>
+                </div>
+            </el-col>
+            <el-col :span="24">
+                <div class="chart card io_chart">
+                    <header class="clear">
+                        <span class="fl">IO Await</span>
+                        <ul class="fr">
+                            <li class="fl"><span class="current">近1小时</span></li>
+                            <li class="fl"><span>近7天</span></li>
+                            <li class="fl"><span>近14天</span></li>
+                        </ul>
+                    </header>
+                    <section ref="io"></section>
+                </div>
+            </el-col>
         </el-row>
     </div>
 </template>
@@ -166,11 +195,73 @@
                 };
                 // 绘制图表
                 myChart.setOption(option);
+            },
+            RAMChart() {
+                // 基于准备好的dom，初始化echarts实例
+                let myChart = this.$echarts.init(this.$refs.ram);
+                // 图表配置项
+                let option = {
+                    title: {
+                        text: '总内存',
+                        textStyle: {
+                            fontSize: 30,
+                            color: '#92a1a6',
+                            fontWeight: 'normal'
+                        },
+                        subtext: '48G',
+                        subtextStyle: {
+                            fontSize: 48,
+                            color: '#92a1a6'
+                        },
+                        top: 170,
+                        left: 205
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: "{a} <br/>{b}: {c} ({d}%)"
+                    },
+                    legend: {
+                        orient: 'vertical',
+                        x: 30,
+                        y: 350,
+                        data:['已使用内存','未使用内存']
+                    },
+                    color: ['#5171fa','#ffc74a'],
+                    series: [
+                        {
+                            name:'内存使用率',
+                            type:'pie',
+                            radius: ['50%', '60%'],
+                            center: ['55%', '50%'],
+                            avoidLabelOverlap: false,
+                            label: {
+                                normal: {
+                                    show: false,
+                                    position: 'center'
+                                },
+                                emphasis: {
+                                    show: false,
+                                    textStyle: {
+                                        fontSize: '30',
+                                        fontWeight: 'bold'
+                                    }
+                                }
+                            },
+                            data:[
+                                {value:335, name:'已使用内存'},
+                                {value:310, name:'未使用内存'}
+                            ]
+                        }
+                    ]
+                };
+                // 绘制图表
+                myChart.setOption(option);
             }
         },
         mounted() {
             this.cpuChart();
             this.ioChart();
+            this.RAMChart();
         }
     }
 </script>
@@ -206,7 +297,27 @@
         }
     }
     .chart{
-        height: 480px;
+        header{
+            height: 50px;
+            line-height: 50px;
+            padding: 0 30px;
+            ul{
+                li{
+                    span{
+                        margin-left: 20px;
+                        cursor: pointer;
+                        &.current,&:hover{
+                            background: -webkit-linear-gradient(left, #6e68fc , #b353f2);
+                            -webkit-background-clip: text;         /* 规定背景的划分区域 */
+                            -webkit-text-fill-color: transparent;  /* 防止字体颜色覆盖 */
+                        }
+                    }
+                }
+            }
+        }
+        section{
+            height: 430px;
+        }
         &.io_chart{
             margin-top: 25px;
         }

@@ -110,6 +110,7 @@
 <style lang="scss" scoped>
     .card{
         padding: 0 14px 50px 14px;
+        height: 423px;
         header{
             height: 100px;
             line-height: 100px;

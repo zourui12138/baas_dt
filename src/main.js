@@ -12,7 +12,8 @@ import {
     Table, TableColumn,
     Button, ButtonGroup, Input, DatePicker, Select, Option, Switch,
     Pagination,
-    Form, FormItem
+    Form, FormItem,
+    Dialog
 } from 'element-ui';
 // 引入Menu组件
 Vue.use(Menu);
@@ -45,6 +46,8 @@ Vue.use(Form);
 Vue.use(FormItem);
 // 引入switch开关
 Vue.use(Switch);
+// 引入弹出框Dialog
+Vue.use(Dialog);
 
 // 引入echarts
 import echarts from 'echarts'

@@ -21,7 +21,7 @@
                 </el-date-picker>
             </li>
         </ul>
-        <div class="card">
+        <div class="card chartContainer">
             <el-row class="count">
                 <el-col :span="4"><p>注册账户数</p></el-col>
                 <el-col :span="4"><p>活跃账户</p></el-col>
@@ -36,7 +36,13 @@
                 <el-col :span="4"><h1>14</h1></el-col>
                 <el-col :span="4"><h1>0</h1></el-col>
             </el-row>
-            <div class="chart"></div>
+            <el-select class="select" v-model="searchData.selectData" placeholder="请选择">
+                <el-option label="平台用户" value="平台用户"></el-option>
+                <el-option label="平台资金" value="平台资金"></el-option>
+                <el-option label="平台项目" value="平台项目"></el-option>
+                <el-option label="本月融资金额" value="本月融资金额"></el-option>
+            </el-select>
+            <div class="chart" ref="chart"></div>
         </div>
         <el-table
             class="tableList card"
@@ -61,7 +67,8 @@
             return{
                 searchData: {
                     nodeName: '',
-                    date: ''
+                    date: '',
+                    selectData: '本月融资金额'
                 },
                 pickerOptions: {
                     shortcuts: [
@@ -133,6 +140,47 @@
                     }
                 ]
             }
+        },
+        methods: {
+            lineChart() {
+                // 基于准备好的dom，初始化echarts实例
+                let myChart = this.$echarts.init(this.$refs.chart);
+                // 图表配置项
+                let option = {
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: ['2017-08', '2017-09', '2017-10', '2017-11', '2017-12', '2018-01', '2018-02']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    grid: {
+                        left: 40,
+                        right: 40,
+                        bottom: 20,
+                        top: 100,
+                        containLabel: true
+                    },
+                    series: [
+                        {
+                            data: [0, 0, 0, 0, 0, 0, 10000],
+                            type: 'line',
+                            areaStyle: {
+                                color: '#fde7e8'
+                            },
+                            lineStyle: {
+                                color: '#f6878d'
+                            }
+                        }
+                    ]
+                };
+                // 绘制图表
+                myChart.setOption(option);
+            }
+        },
+        mounted() {
+            this.lineChart();
         }
     }
 </script>
@@ -147,16 +195,25 @@
             }
         }
     }
-    .count{
-        background-color: #f8f9fd;
-        padding: 20px 0;
-        p,h1{
-            text-align: center;
-            line-height: 26px;
+    .chartContainer{
+        position: relative;
+        .count{
+            background-color: #f8f9fd;
+            padding: 20px 0;
+            p,h1{
+                text-align: center;
+                line-height: 26px;
+            }
         }
-    }
-    .chart{
-        height: 330px;
+        .chart{
+            height: 330px;
+        }
+        .select{
+            position: absolute;
+            top: 110px;
+            left: 40px;
+            z-index: 100;
+        }
     }
     .tableList{
         margin-top: 30px;
