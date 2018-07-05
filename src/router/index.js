@@ -4,7 +4,9 @@ import Router from 'vue-router'
 import Platform from '../modules/platform/Platform'
 // 平台管理
 import Home from '../modules/platform/platformManage/Home'
+import HomeDetail from '../modules/platform/platformManage/HomeDetail'
 import NodeManage from '../modules/platform/platformManage/NodeManage'
+import NodeManageDetail from '../modules/platform/platformManage/NodeManageDetail'
 import ContractManage from '../modules/platform/platformManage/ContractManage'
 import BlockQuery from '../modules/platform/platformManage/BlockQuery'
 // 平台监控
@@ -53,9 +55,19 @@ export default new Router({
                     component: Home
                 },
                 {
+                    path: '/platform/home/:uuid',
+                    name: 'homeDetail',
+                    component: HomeDetail
+                },
+                {
                     path: '/platform/nodeManage',
                     name: 'nodeManage',
                     component: NodeManage
+                },
+                {
+                    path: '/platform/nodeManage/:uuid',
+                    name: 'nodeManageDetail',
+                    component: NodeManageDetail
                 },
                 {
                     path: '/platform/contractManage',
