@@ -6,11 +6,10 @@
                     <img src="../../assets/img/developer/logo.png" alt="">
                     <span>德同开发者平台</span>
                 </li>
-                <li class="fl">平台介绍</li>
-                <li class="fl">智能合约</li>
-                <li class="fl">在线IDE</li>
+                <li class="fl" @click="toBaas">Baas平台</li>
+                <li class="fl" @click="toContract">智能合约系统</li>
                 <li class="fl">技术文档</li>
-                <li class="fl">区块浏览器</li>
+                <li class="fl" @click="toBrowser">区块浏览器</li>
                 <li class="fr">
                     <button type="button">注册</button>
                     <strong>登陆</strong>
@@ -145,7 +144,18 @@
 
     export default {
         name: "Developer",
-        components: {VuePerfectScrollbar}
+        components: {VuePerfectScrollbar},
+        methods: {
+            toBaas() {
+                this.$router.push({ path: '/platform/home' });
+            },
+            toContract() {
+                this.$router.push({ path: '/contract' });
+            },
+            toBrowser() {
+                window.location.href = 'http://210.13.50.98:10145/app/mrray/baasPlatform/html/main.html#!/home';
+            }
+        }
     }
 </script>
 
@@ -236,6 +246,7 @@
                 line-height: 72px;
                 li{
                     color: hsla(0,0%,100%,.8);
+                    cursor: pointer;
                     &:not(:last-child){
                         margin-right: 30px;
                     }

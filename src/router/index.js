@@ -40,7 +40,7 @@ export default new Router({
         // 重定向
         {
             path: '/',
-            redirect: '/platform/home'
+            redirect: '/developer'
         },
         // 德同BAAS平台路由
         {
