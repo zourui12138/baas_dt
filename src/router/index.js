@@ -24,6 +24,10 @@ import PlatformStatistics from '../modules/platform/statisticsMonitor/PlatformSt
 import Developer from '../modules/developer/Developer'
 // 德同合约管理系统
 import Contract from '../modules/contract/Contract'
+import ContractItemsOne from '../modules/contract/items/ItemsOne'
+import ContractItemsTwo from '../modules/contract/items/ItemsTwo'
+import ContractItemsThree from '../modules/contract/items/ItemsThree'
+import ContractItemsFour from '../modules/contract/items/ItemsFour'
 // 404处理
 import NotFound from '../modules/error/NotFound'
 
@@ -134,7 +138,29 @@ export default new Router({
         {
             path: '/contract',
             name: 'contract',
-            component: Contract
+            component: Contract,
+            children: [
+                {
+                    path: '/contract/contractItemsOne',
+                    name: 'contractItemsOne',
+                    component: ContractItemsOne
+                },
+                {
+                    path: '/contract/contractItemsTwo',
+                    name: 'contractItemsTwo',
+                    component: ContractItemsTwo
+                },
+                {
+                    path: '/contract/contractItemsThree',
+                    name: 'contractItemsThree',
+                    component: ContractItemsThree
+                },
+                {
+                    path: '/contract/contractItemsFour',
+                    name: 'contractItemsFour',
+                    component: ContractItemsFour
+                }
+            ]
         }
     ]
 });

@@ -3,10 +3,10 @@
         <aside class="fl aside">
             <h1>德同合约管理系统</h1>
             <ul>
-                <li>基础合约群</li>
-                <li class="current">投资合约群</li>
-                <li>项目合约群</li>
-                <li>交易合约群</li>
+                <li @click="href('contractItemsOne')" :class="$route.name === 'contractItemsOne' ? 'current' : ''">基础合约群</li>
+                <li @click="href('contractItemsTwo')" :class="$route.name === 'contractItemsTwo' ? 'current' : ''">投资合约群</li>
+                <li @click="href('contractItemsThree')" :class="$route.name === 'contractItemsThree' ? 'current' : ''">项目合约群</li>
+                <li @click="href('contractItemsFour')" :class="$route.name === 'contractItemsFour' ? 'current' : ''">交易合约群</li>
             </ul>
         </aside>
         <section class="fl section">
@@ -17,38 +17,8 @@
                     <span>退出登陆</span>
                 </div>
             </header>
-            <VuePerfectScrollbar v-scroll class="main card">
-                <h1>区块链数据信息详情</h1>
-                <el-table
-                    :data="tableData"
-                    header-cell-class-name="tableTitle"
-                    style="width: 100%">
-                    <el-table-column width="60">
-                        <template slot-scope="scope">
-                            <img src="../../assets/img/contract/contract_icon.png" alt="">
-                        </template>
-                    </el-table-column>
-                    <el-table-column width="120" prop="number" label="合约编号"></el-table-column>
-                    <el-table-column width="200" prop="name" label="合约名称"></el-table-column>
-                    <el-table-column width="200" prop="date" label="时间"></el-table-column>
-                    <el-table-column prop="overview" label="合约概要"></el-table-column>
-                    <el-table-column width="150" label="操作">
-                        <template slot-scope="scope">
-                            <span class="textBtnRed" @click="openDialog">在线编辑</span>
-                            <span class="textBtnBlue">测试</span>
-                        </template>
-                    </el-table-column>
-                </el-table>
-                <el-pagination class="page" background layout="prev, pager, next" :total="1000"></el-pagination>
-            </VuePerfectScrollbar>
+            <VuePerfectScrollbar v-scroll class="main card"><router-view/></VuePerfectScrollbar>
         </section>
-        <el-dialog
-            class="dialogContainer"
-            title="代码编辑"
-            :visible.sync="dialogVisible"
-            width="80%">
-            <img style="width: 100%;" src="../../assets/img/contract/editor.png" alt="">
-        </el-dialog>
     </div>
 </template>
 
@@ -128,6 +98,9 @@
         methods: {
             openDialog() {
                 this.dialogVisible = true;
+            },
+            href(arg) {
+                this.$router.push({path: '/contract/'+arg});
             }
         }
     }
@@ -191,35 +164,6 @@
                 margin: 30px;
                 padding: 0 40px 40px;
                 height: calc(100% - 189px);
-                h1{
-                    height: 50px;
-                    line-height: 50px;
-                    color: #0377ff;
-                    font-size: 18px;
-                    border-bottom: 1px solid #dfe4ef;
-                    margin-bottom: 20px;
-                }
-                .textBtnRed{
-                    font-size: 14px;
-                    color: #f06761;
-                    cursor: pointer;
-                    margin-right: 20px;
-                    &:hover{
-                        text-decoration: underline;
-                    }
-                }
-                .textBtnBlue{
-                    font-size: 14px;
-                    color: #5a8bff;
-                    cursor: pointer;
-                    &:hover{
-                        text-decoration: underline;
-                    }
-                }
-                .page{
-                    background-color: #f3f3f3;
-                    padding: 10px 0;
-                }
             }
         }
     }
