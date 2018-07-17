@@ -150,7 +150,7 @@
                 this.$router.push({ path: '/platform/home' });
             },
             toContract() {
-                this.$router.push({ path: '/contract' });
+                this.$router.push({ path: '/contract/contractItemsOne' });
             },
             toBrowser() {
                 window.location.href = 'http://210.13.50.98:10145/app/mrray/baasPlatform/html/main.html#!/home';
